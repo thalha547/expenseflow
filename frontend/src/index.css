@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: 99, 102, 241; /* Indigo 500 */
+    --accent: 236, 72, 153; /* Pink 500 */
+  }
+
+  body {
+    @apply bg-[#fcfdff] text-slate-900 font-['Inter',sans-serif] antialiased;
+    background: radial-gradient(circle at 0% 0%, rgba(99, 102, 241, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 100% 100%, rgba(236, 72, 153, 0.03) 0%, transparent 50%);
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/80 backdrop-blur-xl border border-white/20 shadow-2xl;
+  }
+
+  .premium-card {
+    @apply bg-white p-6 rounded-[2rem] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all duration-500 hover:shadow-[0_20px_50px_rgba(99,102,241,0.08)] hover:-translate-y-1;
+  }
+
+  .card {
+     @apply premium-card;
+  }
+
+  .btn-primary {
+    @apply relative overflow-hidden bg-slate-900 text-white px-6 py-3 rounded-2xl font-bold transition-all hover:shadow-lg hover:shadow-indigo-500/20 active:scale-95 disabled:opacity-50 flex items-center justify-center gap-2;
+    background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+  }
+
+  .btn-secondary {
+    @apply bg-white text-slate-700 border border-slate-200 px-6 py-3 rounded-2xl font-bold transition-all hover:bg-slate-50 hover:border-indigo-100 active:scale-95 flex items-center justify-center gap-2;
+  }
+
+  .input-field {
+    @apply w-full px-5 py-4 rounded-2xl border border-slate-200 focus:ring-4 focus:ring-indigo-500/5 focus:border-indigo-400 transition-all outline-none bg-slate-50/50 placeholder:text-slate-400 font-medium;
+  }
+
+  .nav-link {
+    @apply flex items-center gap-2.5 px-4 py-2.5 rounded-2xl text-slate-500 hover:text-indigo-600 hover:bg-indigo-50 transition-all font-semibold text-sm;
+  }
+
+  .nav-link-active {
+    @apply text-indigo-600 bg-indigo-50/80 ring-1 ring-indigo-100;
+  }
+}
+
+/* Custom Utilities */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-violet-600;
+}
